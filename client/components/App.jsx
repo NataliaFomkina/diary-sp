@@ -28,6 +28,7 @@ const App = React.createClass({
     },
 
     handleNoteDelete(note) {
+        console.log("handleNoteDelete");
         NotesActions.deleteNote(note.id);
     },
 
@@ -43,7 +44,7 @@ render() {
         <div className='App'>
             <h1> Дневник самоконтроля</h1>
             <TableEditor onNoteAdd={this.handleNoteAdd}/>
-            <Table notes={this.state.notes}/>
+            <Table notes={this.state.notes} onNoteDelete={this.handleNoteDelete}/>
     </div>
     );
 },

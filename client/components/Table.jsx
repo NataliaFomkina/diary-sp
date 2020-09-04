@@ -1,37 +1,59 @@
 import React from 'react';
-import ObjectList from "react-object-list";
-
-
+import './Table.less';
+import Mytd from './Mytd.jsx';
 const Table = React.createClass({
     getInitialState() {
         return{
 
         }
     },
+handleDelete(note){
+    console.log("onclick");
+    //this.props.onNoteDelete(note);
+},
     render(){
         return (
             <div className='Table'>
-                <ObjectList
-                    columns={[
-                        [
-                            {dataKey: 'date', header: 'Дата'},
-                        ],
-                        {dataKey: 'samochuvstvie', header: 'Самочувствие'},
-                        {dataKey: 'son', header: 'Сон'},
-                        {dataKey: 'appetit', header: 'Аппетит'},
-                        {dataKey: 'pulses', header: 'Пульс'},
-                        {dataKey: 'ves', header: 'Вес'},
-                        {dataKey: 'trenirovka', header: 'Тренировка'},
-                        {dataKey: 'narusheniya', header: 'Нарушения режима'},
-                        {dataKey: 'bol', header: 'Болевые ощущения'},
+                <div className='TLabel'>
+                    <label>{this.props.notes.length} items found</label>
+                </div>
+                <table>
+                <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Самочувствие</th>
+                    <th>Сон</th>
+                    <th>Аппетит</th>
+                    <th>Пульс</th>
+                    <th>Вес</th>
+                    <th>Физ.нагрузка</th>
+                    <th>Нарушения режима</th>
+                    <th>Болевые ощущения</th>
+                    <th></th>
+                </tr>
+                </thead>
+                    <tbody>
 
-                    ]}
-                    data={this.props.notes}
-                    meta={{
-                        totalCount:this.props.notes.length,
-                    }}
-                    favouritesEnabled={false}
-                />,
+                    {this.props.notes.map((note) => {
+                        return (
+                            <tr key={note.date} >
+                                <td>{note.date}</td>
+                            <td>{note.samochuvstvie}</td>
+                            <td>{note.son}</td>
+                    <td>{note.appetit}</td>
+                    <td>{note.pulses}</td>
+                    <td>{note.ves}</td>
+                    <td>{note.trenirovka}</td>
+                    <td>{note.narusheniya}</td>
+                    <td>{note.bol}</td>
+                                {/*   onClick={this.props.onNoteDelete(note)}         */}
+                                <td><Mytd onDelete={this.props.onNoteDelete.bind(null,note)}></Mytd></td>
+                            </tr>
+                                )
+                    })}
+                    </tbody>
+                </table>
+                <br />
         </div>
         );
     }

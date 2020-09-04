@@ -37,7 +37,7 @@ const TableEditor = React.createClass({
     },
     handlePulseChange(e) {
         this.setState({
-            pulse: e.target.value
+            pulses: e.target.value
         });
     },
     handleVesChange(e) {
@@ -67,7 +67,7 @@ const TableEditor = React.createClass({
             samochuvstvie:this.state.samochuvstvie,
             son:this.state.son,
             appetit:this.state.appetit,
-            pulse: this.state.pulse,
+            pulses: this.state.pulses,
             ves:this.state.ves,
             trenirovka:this.state.trenirovka,
             narusheniya:this.state.narusheniya,
@@ -79,8 +79,8 @@ const TableEditor = React.createClass({
             samochuvstvie: '',
             son: '',
             appetit: '',
-            pulse: '',
-            ves: '999',
+            pulses: '',
+            ves: '',
             trenirovka: '',
             narusheniya: '',
             bol: '',
@@ -125,7 +125,7 @@ const TableEditor = React.createClass({
                     <input
                     type='text'
                     className='TableEditor__input'
-                    value={this.state.pulse}
+                    value={this.state.pulses}
                     onChange={this.handlePulseChange}
                 />
                 </label>

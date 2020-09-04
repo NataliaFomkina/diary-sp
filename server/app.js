@@ -35,7 +35,6 @@ app.delete('/notes/:id', (req, res) => {
 
 app.put('/notes/:id', (req, res)=>{//потестить (этот метод изменяет содержимое заметки)
  db.changeNote(req.params.id, req, res).then(data => res.send(data));
- db.changeNote(req.params.id, req, res).then(data => res.send(data));
 });
 const server = app.listen(serverPort, function() {
  console.log(`Server is up and running on ${serverPort}`);

@@ -1,16 +1,6 @@
 import React from 'react';
 import './Table.less';
-import Mytd from './Mytd.jsx';
 const Table = React.createClass({
-    getInitialState() {
-        return{
-
-        }
-    },
-handleDelete(note){
-    console.log("onclick");
-    //this.props.onNoteDelete(note);
-},
     render(){
         return (
             <div className='Table'>
@@ -46,8 +36,7 @@ handleDelete(note){
                     <td>{note.trenirovka}</td>
                     <td>{note.narusheniya}</td>
                     <td>{note.bol}</td>
-                                {/*   onClick={this.props.onNoteDelete(note)}         */}
-                                <td><Mytd onDelete={this.props.onNoteDelete.bind(null,note)}></Mytd></td>
+                                <td><input type="button" value="Delete"  onClick={this.props.onNoteDelete.bind(null,note)}/></td>
                             </tr>
                                 )
                     })}

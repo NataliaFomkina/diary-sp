@@ -44,7 +44,7 @@ render() {
         <div className='App'>
             <h1> Дневник самоконтроля</h1>
             <TableEditor onNoteAdd={this.handleNoteAdd}/>
-            <Table notes={this.state.notes} onNoteDelete={this.handleNoteDelete}/>
+            <Table notes={this.state.notes} onNoteDelete={this.handleNoteDelete} onNoteChange={this.handleNoteChange}/>
     </div>
     );
 },

@@ -20,6 +20,7 @@ const Table = React.createClass({
                     <th>Нарушения режима</th>
                     <th>Болевые ощущения</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                     <tbody>
@@ -28,15 +29,16 @@ const Table = React.createClass({
                         return (
                             <tr key={note.date} >
                                 <td>{note.date}</td>
-                            <td>{note.samochuvstvie}</td>
-                            <td>{note.son}</td>
-                    <td>{note.appetit}</td>
-                    <td>{note.pulses}</td>
-                    <td>{note.ves}</td>
-                    <td>{note.trenirovka}</td>
-                    <td>{note.narusheniya}</td>
-                    <td>{note.bol}</td>
-                                <td><input type="button" value="Delete"  onClick={this.props.onNoteDelete.bind(null,note)}/></td>
+                                <td><textarea className="tableInput" defaultValue={note.samochuvstvie}></textarea></td>
+                            <td><textarea className="tableInput" defaultValue={note.son}></textarea></td>
+                    <td><textarea className="tableInput" defaultValue={note.appetit}></textarea></td>
+                    <td><input className="tableInput" type="text" defaultValue={note.pulses}></input></td>
+                    <td><input className="tableInput" type="text" defaultValue={note.ves}></input></td>
+                    <td><textarea className="tableInput" defaultValue={note.trenirovka}></textarea></td>
+                    <td><textarea className="tableInput" defaultValue={note.narusheniya}></textarea></td>
+                    <td><textarea className="tableInput" defaultValue={note.bol}></textarea></td>
+                                <td><input className= "changeButton" type="button" value="Save changes" /></td>
+                                <td><input className= "deleteButton" type="button" value="Delete"  onClick={this.props.onNoteDelete.bind(null,note)}/></td>
                             </tr>
                                 )
                     })}

@@ -28,7 +28,6 @@ const App = React.createClass({
     },
 
     handleNoteDelete(note) {
-        console.log("handleNoteDelete");
         NotesActions.deleteNote(note.id);
     },
 
@@ -36,8 +35,9 @@ const App = React.createClass({
         NotesActions.createNote(noteData);
     },
 
-    handleNoteChange(note, noteData){
-        NotesActions.changeNote(note, noteData);
+    handleNoteChange(note){
+        console.log("handleNoteChange");
+        NotesActions.changeNote(note);
     },
 render() {
     return (

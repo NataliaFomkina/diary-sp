@@ -44,8 +44,9 @@ const NoteActions = {
                 console.error(err)
             );
     },
-    changeNote(noteId, data){
-        api.changeNote(noteId, data)
+    changeNote(note){
+        console.log("NotesActions changeNote()");
+        api.changeNote(note._id, note)
         .then(() =>
             this.loadNotes()
         )

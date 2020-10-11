@@ -1,7 +1,9 @@
 import React from 'react';
 import './Table.less';
 const Table = React.createClass({
-    render(){
+
+        render(){
+            console.log(this.props.notes);
         return (
             <div className='Table'>
                 <div className='TLabel'>
@@ -20,27 +22,27 @@ const Table = React.createClass({
                     <th>Нарушения режима</th>
                     <th>Болевые ощущения</th>
                     <th></th>
-                    <th></th>
                 </tr>
                 </thead>
                     <tbody>
 
-                    {this.props.notes.map((note) => {
+                    {this.props.notes.map((note,index) => {
                         return (
-                            <tr key={note.date} >
+                            <tr key={index}>
                                 <td>{note.date}</td>
-                                <td><textarea className="tableInput" defaultValue={note.samochuvstvie}></textarea></td>
-                            <td><textarea className="tableInput" defaultValue={note.son}></textarea></td>
-                    <td><textarea className="tableInput" defaultValue={note.appetit}></textarea></td>
-                    <td><input className="tableInput" type="text" defaultValue={note.pulses}></input></td>
-                    <td><input className="tableInput" type="text" defaultValue={note.ves}></input></td>
-                    <td><textarea className="tableInput" defaultValue={note.trenirovka}></textarea></td>
-                    <td><textarea className="tableInput" defaultValue={note.narusheniya}></textarea></td>
-                    <td><textarea className="tableInput" defaultValue={note.bol}></textarea></td>
-                                <td><input className= "changeButton" type="button" value="Save changes" /></td>
-                                <td><input className= "deleteButton" type="button" value="Delete"  onClick={this.props.onNoteDelete.bind(null,note)}/></td>
+                                <td>{note.samochuvstvie}</td>
+                                <td>{note.son}</td>
+                                <td>{note.appetit}</td>
+                                <td>{note.pulses}</td>
+                                <td>{note.ves}</td>
+                                <td>{note.trenirovka}</td>
+                                <td>{note.narusheniya}</td>
+                                <td>{note.bol}</td>
+                                {/*<td><input id = {note._id} className= "changeButton" type="button" value="Save changes" onClick={this.handleNoteChange}/></td>*/}
+                                <td><input className= "deleteButton" type="button" value="Delete"
+                                               onClick = {this.props.onNoteDelete.bind(null,note)}/></td>
                             </tr>
-                                )
+                        )
                     })}
                     </tbody>
                 </table>
@@ -49,5 +51,4 @@ const Table = React.createClass({
         );
     }
 });
-
 export default Table;
